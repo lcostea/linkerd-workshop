@@ -1,0 +1,9 @@
+name: linkerd2-crds-umbrella
+apiVersion: v2
+version: 0.1.0
+dependencies:
+- name: linkerd-crds
+  #linkerd version 2.12.1
+  version: 1.4.0 
+  repository: "https://helm.linkerd.io/stable"
+  alias: linkerd-crds
