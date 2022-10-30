@@ -1,0 +1,9 @@
+.DS_Store
+
+#this is so we don't push the trust anchor and identity issuers to remote
+*.crt
+*.key
+
+# we don't want to push the charts deps
+Chart.lock
+charts
