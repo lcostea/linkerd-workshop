@@ -1,0 +1,9 @@
+name: linkerd2-viz-umbrella
+apiVersion: v2
+version: 0.1.0
+dependencies:
+- name: linkerd-viz
+  #linkerd version 2.12.2
+  version: 30.3.4
+  repository: "https://helm.linkerd.io/stable"
+  alias: linkerd-viz
