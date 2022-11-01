@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: curl
+  namespace: mtls
+spec:
+  selector:
+    matchLabels:
+      app: curl
+  template:
+    metadata:
+      labels:
+        app: curl
+    spec:
+      containers:
+      - name: curl
+        image: curlimages/curl:7.86.0
+        command: [/bin/sleep, 3d]
+        imagePullPolicy: IfNotPresent
+      restartPolicy: Always

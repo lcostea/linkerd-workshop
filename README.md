@@ -2,3 +2,4 @@
 
 [1. Linkerd Installation](Docs/1.Installation.md)
 [2. Observability](Docs/2.Observability.md)
+[3. Security](Docs/3.Security.md)
