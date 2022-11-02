@@ -1,0 +1,16 @@
+apiVersion: linkerd.io/v1alpha2
+kind: ServiceProfile
+metadata:
+  name: voting-svc.emojivoto.svc.cluster.local
+  namespace: emojivoto #can be source (client) or destination (svc)
+spec:
+  routes:
+  - condition:
+      method: POST
+      pathRegex: '/emojivoto.v1.VotingService/VoteDoughnut'
+    name: POST VoteDoughnut
+    isRetryable: true
+  retryBudget:
+    retryRatio: 0.2
+    minRetriesPerSecond: 10
+    ttl: 10s
