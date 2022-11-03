@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  namespace: clear
+spec:
+  selector:
+    matchLabels:
+      app: clear-nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: clear-nginx
+    spec:
+      containers:
+      - image: nginx:1.23.2-alpine
+        name: nginx
+      - image: cr.l5d.io/linkerd/debug:stable-2.12.2
+        imagePullPolicy: IfNotPresent
+        name: linkerd-debug
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: FallbackToLogsOnError
+        securityContext:
+          allowPrivilegeEscalation: true
+          capabilities:
+            add:
+            - NET_ADMIN
+            - NET_RAW
+          privileged: true
+          runAsNonRoot: false
+          runAsUser: 0
