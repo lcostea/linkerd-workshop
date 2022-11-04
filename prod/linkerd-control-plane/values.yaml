@@ -1,0 +1,59 @@
+linkerd2:
+  linkerdVersion: stable-2.12.2
+  # installNamespace: false
+  # enablePodAntiAffinity: true
+
+  # # proxy configuration (the additional container for each pod, including linkerd control plane)
+  # proxy:
+  #   resources:
+  #     cpu:
+  #       request: 125m
+  #     memory:
+  #       limit: 250Mi
+  #       request: 250Mi
+
+  # controllerReplicas: 3
+  # controllerResources:
+  #   cpu:
+  #     request: 125m
+  #   memory:
+  #     limit: 250Mi
+  #     request: 250Mi
+
+  # # this is the most resource (esp memory) consuming deployment, the more traffic we have in the cluster, the more it will need
+  # destinationResources: 
+  #   cpu:
+  #     request: 250m
+  #   memory:
+  #     limit: 512Mi
+  #     request: 512Mi
+
+  # publicAPIResources: 
+  #   cpu:
+  #     request: 125m
+  #   memory:
+  #     limit: 250Mi
+  #     request: 250Mi
+
+  # identityResources:
+  #   cpu:
+  #     request: 125m
+  #   memory:
+  #     limit: 250Mi
+  #     request: 250Mi
+
+  # heartbeatResources:
+  #   cpu:
+  #     request: 125m
+  #   memory:
+  #     limit: 250Mi
+  #     request: 250Mi
+
+  # # if proxyInjector stops working we will not be able to deploy new pods (if webhookFailurePolicy is Fail)
+  # proxyInjectorResources: 
+  #   cpu:
+  #     request: 250m
+  #   memory:
+  #     limit: 512Mi
+  #     request: 512Mi
+  # webhookFailurePolicy: Fail

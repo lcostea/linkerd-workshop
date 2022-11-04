@@ -1,0 +1,23 @@
+# requires cert-manager to be installed, in order for the Certificate CRD to be applied
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: linkerd-identity-issuer
+spec:
+  commonName: identity.linkerd.cluster.local
+  dnsNames:
+  - identity.linkerd.cluster.local
+  duration: 2160h # 90 days
+  isCA: true
+  issuerRef:
+    kind: Issuer
+    name: linkerd-trust-anchor
+  privateKey:
+    algorithm: ECDSA
+  renewBefore: 1200h # 50 days
+  secretName: linkerd-identity-issuer
+  usages:
+  - cert sign
+  - crl sign
+  - server auth
+  - client auth
